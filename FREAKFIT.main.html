@@ -27,6 +27,7 @@ FREAKFIT SPORTS
 .topbar .img img{
 height:28px;
     width:auto;
+    margin-right: 20px;
 }
 
 .topbar .nav li a {
@@ -85,14 +86,15 @@ body {
 .S2 {
     color: #000000;
     background-color: #fffffb;
-    padding: 5px;
+    padding: 30px;
     margin: none;
+    margin-bottom: 20px;
 }
 
 .S2 h1 {
     font-family: Impact;
     font-style: italic;
-    font-size: 70px;
+    font-size: 80px;
     margin-left: 80px;
 }
 
@@ -103,10 +105,16 @@ body {
     color: #fffffb;
 }
 
-.content a {
+.S2 .content a {
     display:block;
     text-decoration:none;
     color:inherit;
+}
+
+.S2 .content a:hover {
+    color: #d2fe05;
+    font-style: italic;
+    font-size: 100px;
 }
 
 .S2 .content div{
@@ -114,8 +122,37 @@ body {
     font-family: Helvetica;
     font-weight: bold;
     font-size: 20px;
-    padding:20px;
+    padding:10px;
     text-align:center;
+}
+
+.S2 .content img{
+    width:100%;
+    height:500px;
+    object-fit:scale-down;
+    display:block;
+}
+
+.S3 {
+    align-items: center;
+    color: #fffffb;
+    word-spacing: 5px;
+}
+
+.S3 .contact_header {
+font-family: Impact;
+    font-style: italic;
+    font-size: 30px;
+    margin-left: 70px;
+}
+
+
+.S3 .Blogs {
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap:10px;
+    color: #fffffb;
+    background-color: #000000;
 }
 
 /*----------------------------Break----------------------------------*/
@@ -125,9 +162,9 @@ body {
 <body>
 <div class="topbar">
     <ul class="nav">
-        <li><a href="!_Home">Home</a></li>
-        <li><a href="!_Shop">Products</a></li>
-        <li><a href="!_Aboutus">About us</a></li>
+        <li><a href="Freakfit.html">Home</a></li>
+        <li><a href="FREAKFITSHOP.html">Products</a></li>
+        <li><a href="FREAKFITAU.html">About us</a></li>
     </ul>
 
     <div class="img">
@@ -137,7 +174,7 @@ body {
 
 <div class="S1">
     <div class="Header"> <h1>About Us</h1> </div>
-    <div class="text_box"><p1>Based in Ho Chi Minh city (Saigon), Freakfit is a passion project about producing specialised sportswear made for athletes, by athletes.</p1></div>
+    <div class="text_box"><p1>Based in Ho Chi Minh city (Saigon), Freakfit is a passion project about producing specialised sportswear made for athletes, by athletes. [WIP]</p1></div>
 </div>
 
 <br>
@@ -147,28 +184,39 @@ body {
 
 <a href="Clothing.FF.html">     
     <div class="Clothing">
-        <img src="" alt="Clothes">
+        <img src="PL1.jpg" alt="Clothes">
         <h2>Clothings</h2>
     </div>
 </a>
 
 <a href="AnE.FF.html">     
     <div class="AnE">
-        <img src="" alt="AnE">
+        <img src="PL2.jpg" alt="AnE">
         <h2>Accessories & Equipments</h2>
     </div>
 </a>
 
 <a href="Others.FF.html">     
     <div class="Others">
-        <img src="" alt="Others">
+        <img src="PL3.jpg" alt="Others">
         <h2>Others</h2>
     </div>
 </a>
+</div>
+<br>
+<br>
 
 </div>
 
-<br>
+<div class="S3">
+<div class="contact_header">
+<h1>Blogging by Insiders</h1>
+</div>
+
+<div class="Blogs">
+</div>
+</div>
+
 
 </div>
 
