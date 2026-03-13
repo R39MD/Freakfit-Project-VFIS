@@ -1,77 +1,235 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>
-FREAKFIT INFORMATION
-</title>
+<title>FREAKFIT - About Us</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-/* Main colours: ##000000 ; #fffffb ; #f62a99 ; #2800ea ; #d2fe05 */
+
+/* Main colours: #000000 ; #fffffb ; #f62a99 ; #2800ea ; #d2fe05 */
+
+body{
+    margin:0;
+    background-image:url("background1.jpeg");
+    background-size:cover;
+    background-attachment:fixed;
+    font-family:Verdana;
+}
+
+/* ---------- NAVBAR ---------- */
+
 .topbar{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    background-color:#000000;
+    background:#000;
     position:sticky;
     top:0;
-    z-index:1000;
-    margin: none;
-
-}
-.topbar .nav {
-    list-style: none;
-    display: flex;
-    text-decoration: none;
 }
 
-.topbar .img img{
-height:28px;
-    width:auto;
-    margin-right: 20px;
+.nav{
+    list-style:none;
+    display:flex;
 }
 
-.topbar .nav li a {
-    color: #fffffb;
-    font-family: Impact;
-    font-size: 25px;
-    padding: 1px 19px;
-    text-decoration: none;
+.nav li a{
+    color:#fffffb;
+    text-decoration:none;
+    font-family:Impact;
+    font-size:24px;
+    padding:10px 20px;
 }
 
-.topbar .nav li a:hover {
-    color:#000000;
-    font-family: Impact;
-    font-style: italic;
-    font-size: 25px;
-    padding: 17px 19px;
-    background-color: #ff00a1;
+.nav li a:hover{
+    background:#ff00a1;
+    color:#000;
 }
 
-body {
-    background-image: url("background1.jpeg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    scrollbar-width:none;
-    margin: none;
-  }
-  body::-webkit-scrollbar{
-    display:none; 
-  }
+.img img{
+    height:28px;
+    margin-right:20px;
+}
 
-/*----------------------------Break----------------------------------*/
+/* ---------- ABOUT SECTION ---------- */
+
+.about{
+    background: url("background1.jpeg")
+    padding:60px;
+}
+
+.about h1{
+    font-family:Impact;
+    font-size:70px;
+}
+
+.about p{
+    max-width:800px;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.team{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-top:40px;
+}
+
+.member{
+    text-align:center;
+    background:#000;
+    color:#fffffb;
+    padding:20px;
+}
+
+.member img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+/* ---------- CONTACT SECTION ---------- */
+
+.contact{
+    background:#f4f4f4;
+    padding:60px;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.contact-info h2{
+    font-family:Impact;
+    font-size:40px;
+}
+
+.contact-info p{
+    margin:20px 0;
+}
+
+.contact-form{
+    background:#0000;
+    padding:30px;
+    border-radius:8px;
+    color:white;
+}
+
+.contact-form h2{
+    margin-bottom:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:none;
+}
+
+.contact-form button{
+    background:#000;
+    color:#fffffb;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+}
+
+.contact-form button:hover{
+    background: #f62a99;
+}
+
+
+
 </style>
 </head>
 
 <body>
-<div class="topbar">
-    <ul class="nav">
-        <li><a href="Freakfit.html">Home</a></li>
-        <li><a href="FREAKFITSHOP.html">Products</a></li>
-        <li><a href="FREAKFITAU.html">About us</a></li>
-    </ul>
 
-    <div class="img">
-        <img src="FREAKFIT_logo.png" alt="FreakFitlogo">
-    </div>
+
+<div class="topbar">
+<ul class="nav">
+<li><a href="Freakfit.html">Home</a></li>
+<li><a href="FREAKFITSHOP.html">Products</a></li>
+<li><a href="FREAKFITAU.html">About Us</a></li>
+</ul>
+
+<div class="img">
+<img src="FREAKFIT_logo.png">
 </div>
+</div>
+
+
+<div class="about">
+
+<h1>About FreakFit</h1>
+
+<p>
+Based in Ho Chi Minh City, FreakFit is a passion project created by athletes for athletes.
+Our goal is to design sportswear that prioritizes performance, durability, and bold identity.
+Every product is built to move with you — whether you're running, lifting, or pushing your limits.
+</p>
+
+<p>
+FreakFit isn't just clothing. It's a mindset built around strength, movement, and self-expression.
+</p>
+
+<div class="team">
+
+<div class="member">
+<img src="founder1.jpg">
+<h3>Gavin</h3>
+<p>Website curator</p>
+</div>
+
+<div class="member">
+<img src="founder2.jpg">
+<h3>Amber</h3>
+<p>Marketing strategist</p>
+</div>
+
+<div class="member">
+<img src="founder3.jpg">
+<h3>Jerry</h3>
+<p>Brand designer</p>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="contact">
+
+<div class="contact-grid">
+
+<!-- LEFT SIDE -->
+
+<div class="contact-info">
+
+<h2>Contact Us</h2>
+
+<p><b>Phone</b><br>123-456-7890</p>
+
+<p><b>Email</b><br>freakfit@gmail.com</p>
+
+<p><b>Founders</b><br>Gavin, Amber, Jerry</p>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="contact-form">
+
+<h2>Send a Message</h2>
+
+<form>
+<input type="text" placeholder="Your Name">
+<input type="text" placeholder="Phone Number">
+<input type="email" placeholder="Email Address">
+<textarea rows="5" placeholder="Message"></textarea>
+<button type="submit">Send</button>
+</form>
