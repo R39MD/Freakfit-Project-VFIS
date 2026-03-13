@@ -59,6 +59,79 @@ body {
     display:none; 
   }
 
+
+  .S1 {
+    background-color:#fffffb;
+    padding: 20px;
+    margin: none;
+    margin-bottom: 20px;
+}
+
+.S1 h1 {
+    font-family: Impact;
+    font-style: italic;
+    font-size: 80px;
+    margin-left: 80px;
+}
+
+.S1 .content{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:10px;
+    color: #fffffb;
+}
+
+.S1 .content a {
+    display:block;
+    text-decoration:none;
+    color:inherit;
+}
+
+.S1 .content a:hover {
+    color: #d2fe05;
+    font-style: italic;
+    font-size: inherit;
+}
+
+.S1 .content div{
+    background-color:#000000;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 20px;
+    padding:10px;
+    text-align:center;
+}
+
+.S1 .content img{
+    width:100%;
+    height:500px;
+    object-fit:scale-down;
+    display:block;
+}
+
+.S2 {
+    margin:0px;
+}
+
+.S2 h1 {
+    color:#fffffb;
+    font-family: Impact;
+    font-style: italic;
+    font-style: 70px;
+    margin-left: 30px;
+}
+
+.S2 .items {
+    display:grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap:10px;
+    color: #fffffb;
+    background-color: #000000;
+
+}
+
+
+
 /*----------------------------Break----------------------------------*/
 </style>
 </head>
@@ -75,3 +148,58 @@ body {
         <img src="FREAKFIT_logo.png" alt="FreakFitlogo">
     </div>
 </div>
+
+<div class="S1">
+    <h1>Products</h1>
+<div class="content">
+
+<a href="Clothing.FF.html">     
+    <div class="Clothing">
+        <img src="PL1.jpg" alt="Clothes">
+        <h2>Clothings</h2>
+    </div>
+</a>
+
+<a href="AnE.FF.html">     
+    <div class="AnE">
+        <img src="PL2.jpg" alt="AnE">
+        <h2>Accessories & Equipments</h2>
+    </div>
+</a>
+
+<a href="Others.FF.html">     
+    <div class="Others">
+        <img src="PL3.jpg" alt="Others">
+        <h2>Others</h2>
+    </div>
+</a>
+</div>
+</div>
+
+<br>
+<br>
+
+<div class="S2"> 
+<h1> Take a look</h1>
+
+<div class="items">
+
+    <div class="Shoes1">   
+    <h2>Specalised soft pad running shoes</h2>
+    </div>
+
+<div class="Shirt1">
+    <h2>Flexible marathon shirt</h2>
+</div>
+
+<div class="Shoes2">
+    <h2>Heavy weighted shoes lifting</h2>
+</div>
+
+<div class="Shirt2">
+    <h2>Tank top flex</h2>
+</div>
+</div>
+</div>
+</body>
+</html>
