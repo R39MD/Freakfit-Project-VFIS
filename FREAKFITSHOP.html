@@ -15,7 +15,7 @@ FREAKFIT SPORTS SHOP
     position:sticky;
     top:0;
     z-index:1000;
-    margin: none;
+    margin: 0;
 
 }
 .topbar .nav {
@@ -53,17 +53,16 @@ body {
     background-attachment: fixed;
     background-size: cover;
     scrollbar-width:none;
-    margin: none;
+    margin: 0;
   }
   body::-webkit-scrollbar{
     display:none; 
   }
 
-
   .S1 {
     background-color:#fffffb;
     padding: 20px;
-    margin: none;
+    margin: 0;
     margin-bottom: 20px;
 }
 
@@ -121,16 +120,38 @@ body {
     margin-left: 30px;
 }
 
-.S2 .items {
+.S2 .items{
     display:grid;
-    grid-template-rows: repeat(4, 1fr);
-    gap:10px;
-    color: #fffffb;
-    background-color: #000000;
-
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+    padding:20px;
+    background-color:#000000;
 }
 
+.S2 .items div{
+    background: #000000;
+    padding:15px;
+    text-align:center;
+    font-family:Helvetica;
+}
 
+.S2 .items img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+    margin-bottom:10px;
+}
+
+.S2 .items h2{
+    color:#fffffb;
+    font-size:18px;
+}
+
+.S2 .items div:hover{
+    transform:scale(1.05);
+    transition:0.25s;
+}
 
 /*----------------------------Break----------------------------------*/
 </style>
@@ -139,7 +160,7 @@ body {
 <body>
 <div class="topbar">
     <ul class="nav">
-        <li><a href="Freakfit.html">Home</a></li>
+        <li><a href="FREAKFIT.main.html">Home</a></li>
         <li><a href="FREAKFITSHOP.html">Products</a></li>
         <li><a href="FREAKFITAU.html">About us</a></li>
     </ul>
@@ -203,6 +224,17 @@ body {
     <img src="PL3.jpg" alt="Tank top">
     <h2>Tank Top Flex</h2>
 </div>
+
+<div class="Pants1">
+    <img src="PL1.jpg" alt="Pants1">
+    <h2>Shorts shorts athletic</h2>
+</div>
+
+<div class="Pants2">
+    <img src="PL2.jpg" alt="Pants2">
+    <h2>Elastic leggings</h2>
+</div>
+
 
 </div>
 </div>
