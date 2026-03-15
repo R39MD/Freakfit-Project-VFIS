@@ -1,202 +1,352 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>FREAKFIT SPORTS SHOP</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-/* Main colours: ##000000 ; #fffffb ; #f62a99 ; #2800ea ; #d2fe05 */
-.topbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background-color:#000000;
-    position:sticky;
-    top:0;
-    z-index:1000;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:ital,wght@0,500;0,700;1,700&display=swap');
+
+:root {
+    --bg-dark: #050505;
+    --text-light: #fffffb;
+    --accent-pink: #f62a99;
+    --accent-blue: #2800ea;
+    --accent-green: #d2fe05;
+    --font-head: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-dark);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeOutLoader 0.8s ease-in-out 0.8s forwards;
+    pointer-events: none;
+}
+.loader-logo {
+    font-family: var(--font-head);
+    font-size: 60px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: skewX(-10deg);
+    animation: pulseLogo 0.8s ease-in-out infinite alternate;
+}
+.loader-logo span {
+    color: var(--accent-green);
+}
+.loader-bar {
+    width: 200px;
+    height: 4px;
+    background-color: rgba(255,255,255,0.1);
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.loader-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background-color: var(--accent-pink);
+    animation: loadingBar 0.8s ease-in-out infinite;
+}
+
+@keyframes fadeOutLoader {
+    0% { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+}
+@keyframes pulseLogo {
+    0% { text-shadow: 0 0 10px var(--accent-pink); transform: skewX(-10deg) scale(1); }
+    100% { text-shadow: 0 0 20px var(--accent-pink), 0 0 40px var(--accent-pink); transform: skewX(-10deg) scale(1.05); }
+}
+@keyframes loadingBar {
+    0% { left: -50%; }
+    100% { left: 100%; }
+}
+
+body {
     margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url("https://picsum.photos/seed/bg/1920/1080");
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--accent-pink); border-radius: 5px; }
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .topbar .nav {
     list-style: none;
     display: flex;
-    text-decoration: none;
-}
-.topbar .img img{
-    height:28px;
-    width:auto;
-    margin-right: 20px;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 .topbar .nav li a {
-    color: #fffffb;
-    font-family: Impact;
-    font-size: 25px;
-    padding: 1px 19px;
+    color: var(--text-light);
+    font-family: var(--font-head);
+    font-size: 22px;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 .topbar .nav li a:hover {
-    color:#000000;
-    font-family: Impact;
+    color: var(--accent-pink);
+}
+
+
+.logo {
+    font-family: var(--font-head);
+    font-size: 36px;
+    font-weight: 900;
     font-style: italic;
-    font-size: 25px;
-    padding: 17px 19px;
-    background-color: #ff00a1;
+    color: var(--text-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transform: skewX(-10deg);
+    transition: transform 0.3s ease, text-shadow 0.3s ease, border-color 0.3s ease;
+    border: 3px solid var(--text-light);
+    padding: 0px 10px;
+    line-height: 1.2;
 }
-body {
-    background-image: url("images/background1.jpeg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    scrollbar-width:none;
-    margin: 0;
+.logo span {
+    color: var(--accent-green);
 }
-body::-webkit-scrollbar{
-    display:none; 
+.logo:hover {
+    transform: skewX(-10deg) scale(1.05);
+    text-shadow: 4px 4px 0px var(--accent-pink);
+    border-color: var(--accent-green);
 }
+
+/* Categories Section */
 .S1 {
-    background-color:#fffffb;
-    padding: 20px;
+    background-color: var(--text-light);
+    color: var(--bg-dark);
+    padding: 80px 5%;
     margin: 0;
-    margin-bottom: 20px;
 }
 .S1 h1 {
-    font-family: Impact;
+    font-family: var(--font-head);
     font-style: italic;
-    font-size: 80px;
-    margin-left: 80px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin: 0 0 40px 0;
+    text-transform: uppercase;
 }
-.S1 .content{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:10px;
-    color: #fffffb;
+.S1 .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 .S1 .content a {
-    display:block;
-    text-decoration:none;
-    color:inherit;
+    text-decoration: none;
+    color: var(--text-light);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    background: var(--bg-dark);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .S1 .content a:hover {
-    color: #d2fe05;
-    font-style: italic;
-    font-size: inherit;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
-.S1 .content div{
-    background-color:#000000;
-    font-family: Helvetica;
-    font-weight: bold;
-    font-size: 20px;
-    padding:10px;
-    text-align:center;
+.S1 .content div {
+    position: relative;
+    height: 100%;
 }
-.S1 .content img{
-    width:100%;
-    height:500px;
-    object-fit:scale-down;
-    display:block;
+.S1 .content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    opacity: 0.9;
+    display: block;
 }
+.S1 .content a:hover img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+.S1 .content h2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 30px 20px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+.S1 .content a:hover h2 {
+    color: var(--accent-green);
+}
+
+
 .S2 {
-    margin:0px;
+    padding: 80px 5%;
 }
 .S2 h1 {
-    color:#fffffb;
-    font-family: Impact;
+    font-family: var(--font-head);
     font-style: italic;
-    font-size: 70px;
-    margin-left: 30px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin: 0 0 40px 0;
+    text-transform: uppercase;
+    color: var(--text-light);
 }
-.S2 .items{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:20px;
-    padding:20px;
-    background-color:#000000;
+.S2 .items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
-.S2 .items div{
-    background: #000000;
-    padding:15px;
-    text-align:center;
-    font-family:Helvetica;
+.S2 .items a {
+    text-decoration: none;
+    display: block;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
 }
-.S2 .items img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    display:block;
-    margin-bottom:10px;
+.S2 .items a:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    border-color: var(--accent-pink);
+    background: rgba(255, 255, 255, 0.08);
 }
-.S2 .items h2{
-    color:#fffffb;
-    font-size:18px;
+.S2 .items img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
-.S2 .items div:hover{
-    transform:scale(1.05);
-    transition:0.25s;
+.S2 .items h2 {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .topbar { flex-direction: column; gap: 15px; padding: 20px 5%; }
+    .topbar .nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
 }
 </style>
 </head>
 <body>
+
+<div class="loader-wrapper">
+    <div class="loader-logo">FREAK<span>FIT</span></div>
+    <div class="loader-bar"></div>
+</div>
+
 <div class="topbar">
+    <a href="index.html" class="logo">FREAK<span>FIT</span></a>
     <ul class="nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html">Products</a></li>
-        <li><a href="About_us.html">About us</a></li>
+        <li><a href="About_us.html">About Us</a></li>
+        <li><a href="cart.html" class="cart-link">Cart (0)</a></li>
     </ul>
-    <div class="img">
-        <img src="images/FREAKFIT_logo.png" alt="FreakFitlogo">
-    </div>
 </div>
+
 <div class="S1">
     <h1>Products</h1>
-<div class="content">
-<a href="shop.html">     
-    <div class="Clothing">
-        <img src="images/PL1.jpg" alt="Clothes">
-        <h2>Clothings</h2>
+    <div class="content">
+        <a href="product_clothing.html">     
+            <div class="Clothing">
+                <img src="https://i.postimg.cc/0Qfdg2G9/image.png" alt="Clothes">
+                <h2>Clothings</h2>
+            </div>
+        </a>
+        <a href="product_equipment.html">     
+            <div class="AnE">
+                <img src="https://i.postimg.cc/zfqVswx1/image.png" alt="AnE">
+                <h2>Accessories & Equipments</h2>
+            </div>
+        </a>
+        <a href="product_others.html">     
+            <div class="Others">
+                <img src="https://i.postimg.cc/hj6xRzJZ/image.png" alt="Others">
+                <h2>Others</h2>
+            </div>
+        </a>
     </div>
-</a>
-<a href="AnE.FF.html">     
-    <div class="AnE">
-        <img src="images/PL2.jpg" alt="AnE">
-        <h2>Accessories & Equipments</h2>
-    </div>
-</a>
-<a href="Others.FF.html">     
-    <div class="Others">
-        <img src="images/PL3.jpg" alt="Others">
-        <h2>Others</h2>
-    </div>
-</a>
 </div>
-</div>
-<br>
-<br>
+
 <div class="S2"> 
-<h1>Take a look</h1>
-<div class="items">
-<div class="Shoes1">   
-    <img src="images/shoes1.jpg" alt="Running shoes">
-    <h2>Specialised Soft Pad Running Shoes</h2>
+    <h1>Take a look</h1>
+    <div class="items">
+        <a href="product_clothing.html" class="Shirt1">
+            <img src="https://i.postimg.cc/0Qfdg2G9/image.png" alt="Gymshark Tank Top">
+            <h2>Gymshark Tank Top</h2>
+        </a>
+        <a href="product_equipment.html" class="Shoes2">
+            <img src="https://i.postimg.cc/zfqVswx1/image.png" alt="Hex Dumbbell">
+            <h2>Hex Dumbbell</h2>
+        </a>
+        <a href="product_others.html" class="Shirt2">
+            <img src="https://i.postimg.cc/hj6xRzJZ/image.png" alt="Whey Protein">
+            <h2>Premium Whey Protein (2kg)</h2>
+        </a>
+    </div>
 </div>
-<div class="Shirt1">
-    <img src="images/PL4.jpg" alt="Marathon shirt">
-    <h2>Flexible Marathon Shirt</h2>
-</div>
-<div class="Shoes2">
-    <img src="images/PL2.jpg" alt="Weighted lifting shoes">
-    <h2>Heavy Weighted Lifting Shoes</h2>
-</div>
-<div class="Shirt2">
-    <img src="images/PL3.jpg" alt="Tank top">
-    <h2>Tank Top Flex</h2>
-</div>
-<div class="Pants1">
-    <img src="images/PL1.jpg" alt="Pants1">
-    <h2>Shorts shorts athletic</h2>
-</div>
-<div class="Pants2">
-    <img src="images/PL2.jpg" alt="Pants2">
-    <h2>Elastic leggings</h2>
-</div>
-</div>
-</div>
+<script>
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('freakfit_cart')) || [];
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    const cartLinks = document.querySelectorAll('.cart-link');
+    cartLinks.forEach(link => {
+        link.innerText = `Cart (${totalQty})`;
+    });
+}
+document.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
 </body>
 </html>
