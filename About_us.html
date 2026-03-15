@@ -1,235 +1,399 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>FREAKFIT - About Us</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:ital,wght@0,500;0,700;1,700&display=swap');
 
-/* Main colours: #000000 ; #fffffb ; #f62a99 ; #2800ea ; #d2fe05 */
-
-body{
-    margin:0;
-    background-image:url("./images/background1.jpeg");
-    background-size:cover;
-    background-attachment:fixed;
-    font-family:Verdana;
+:root {
+    --bg-dark: #050505;
+    --text-light: #fffffb;
+    --accent-pink: #f62a99;
+    --accent-blue: #2800ea;
+    --accent-green: #d2fe05;
+    --font-head: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
-/* ---------- NAVBAR ---------- */
-
-.topbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background:#000;
-    position:sticky;
-    top:0;
+html {
+    scroll-behavior: smooth;
 }
 
-.nav{
-    list-style:none;
-    display:flex;
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-dark);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeOutLoader 0.8s ease-in-out 0.8s forwards;
+    pointer-events: none;
+}
+.loader-logo {
+    font-family: var(--font-head);
+    font-size: 60px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: skewX(-10deg);
+    animation: pulseLogo 0.8s ease-in-out infinite alternate;
+}
+.loader-logo span {
+    color: var(--accent-green);
+}
+.loader-bar {
+    width: 200px;
+    height: 4px;
+    background-color: rgba(255,255,255,0.1);
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.loader-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background-color: var(--accent-pink);
+    animation: loadingBar 0.8s ease-in-out infinite;
 }
 
-.nav li a{
-    color:#fffffb;
-    text-decoration:none;
-    font-family:Impact;
-    font-size:24px;
-    padding:10px 20px;
+@keyframes fadeOutLoader {
+    0% { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+}
+@keyframes pulseLogo {
+    0% { text-shadow: 0 0 10px var(--accent-pink); transform: skewX(-10deg) scale(1); }
+    100% { text-shadow: 0 0 20px var(--accent-pink), 0 0 40px var(--accent-pink); transform: skewX(-10deg) scale(1.05); }
+}
+@keyframes loadingBar {
+    0% { left: -50%; }
+    100% { left: 100%; }
 }
 
-.nav li a:hover{
-    background:#ff00a1;
-    color:#000;
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url("https://picsum.photos/seed/bg/1920/1080");
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--text-light);
+    overflow-x: hidden;
 }
 
-.img img{
-    height:28px;
-    margin-right:20px;
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--accent-pink); border-radius: 5px; }
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.topbar .nav {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+.topbar .nav li a {
+    color: var(--text-light);
+    font-family: var(--font-head);
+    font-size: 22px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+.topbar .nav li a:hover {
+    color: var(--accent-pink);
 }
 
-/* ---------- ABOUT SECTION ---------- */
 
-.about{
-    background: url("./images/background1.jpeg");
-    padding:60px;
+.logo {
+    font-family: var(--font-head);
+    font-size: 36px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--text-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transform: skewX(-10deg);
+    transition: transform 0.3s ease, text-shadow 0.3s ease, border-color 0.3s ease;
+    border: 3px solid var(--text-light);
+    padding: 0px 10px;
+    line-height: 1.2;
+}
+.logo span {
+    color: var(--accent-green);
+}
+.logo:hover {
+    transform: skewX(-10deg) scale(1.05);
+    text-shadow: 4px 4px 0px var(--accent-pink);
+    border-color: var(--accent-green);
 }
 
-.about h1{
-    font-family:Impact;
-    font-size:70px;
+
+.about {
+    padding: 80px 5%;
+}
+.about h1 {
+    font-family: var(--font-head);
+    font-style: italic;
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-shadow: 3px 3px 0px var(--accent-blue);
+}
+.about p {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+.member {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.member:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-green);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+.member img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    filter: grayscale(80%);
+    transition: filter 0.3s ease;
+}
+.member:hover img {
+    filter: grayscale(0%);
+}
+.member h3 {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+.member p {
+    font-size: 0.9rem;
+    color: var(--accent-green);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.about p{
-    max-width:800px;
-    font-size:18px;
-    line-height:1.6;
+
+.contact {
+    background: var(--text-light);
+    color: var(--bg-dark);
+    padding: 80px 5%;
 }
-
-.team{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-    margin-top:40px;
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
 }
-
-.member{
-    text-align:center;
-    background:#000;
-    color:#fffffb;
-    padding:20px;
+.contact-info h2 {
+    font-family: var(--font-head);
+    font-style: italic;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
 }
-
-.member img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
+.contact-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
 }
-
-/* ---------- CONTACT SECTION ---------- */
-
-.contact{
-    background:#f4f4f4;
-    padding:60px;
+.contact-info b {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--accent-pink);
+    display: block;
+    margin-bottom: 5px;
 }
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
+.contact-form {
+    background: var(--bg-dark);
+    padding: 40px;
+    border-radius: 12px;
+    color: var(--text-light);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
-
-.contact-info h2{
-    font-family:Impact;
-    font-size:40px;
+.contact-form h2 {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
 }
-
-.contact-info p{
-    margin:20px 0;
-}
-
-.contact-form{
-    background:#0000;
-    padding:30px;
-    border-radius:8px;
-    color:white;
-}
-
-.contact-form h2{
-    margin-bottom:20px;
-}
-
 .contact-form input,
-.contact-form textarea{
-    width:100%;
-    padding:10px;
-    margin-bottom:15px;
-    border:none;
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-pink);
+}
+.contact-form button {
+    background: var(--accent-pink);
+    color: var(--text-light);
+    border: none;
+    padding: 15px 30px;
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+.contact-form button:hover {
+    background: var(--accent-blue);
+    transform: translateY(-2px);
 }
 
-.contact-form button{
-    background:#000;
-    color:#fffffb;
-    border:none;
-    padding:12px 20px;
-    cursor:pointer;
+@media (max-width: 768px) {
+    .topbar { flex-direction: column; gap: 15px; padding: 20px 5%; }
+    .topbar .nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
 }
-
-.contact-form button:hover{
-    background: #f62a99;
-}
-
-
-
 </style>
 </head>
 
 <body>
 
 
+<div class="loader-wrapper">
+    <div class="loader-logo">FREAK<span>FIT</span></div>
+    <div class="loader-bar"></div>
+</div>
+
 <div class="topbar">
-<ul class="nav">
-<li><a href="index.html">Home</a></li>
-<li><a href="shop.html">Products</a></li>
-<li><a href="About_us.html">About Us</a></li>
-</ul>
-
-<div class="img">
-<img src="./images/FREAKFIT_logo.png">
+    <a href="index.html" class="logo">FREAK<span>FIT</span></a>
+    <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Products</a></li>
+        <li><a href="About_us.html">About Us</a></li>
+        <li><a href="cart.html" class="cart-link">Cart (0)</a></li>
+    </ul>
 </div>
-</div>
-
 
 <div class="about">
+    <h1>About FreakFit</h1>
+    <p>
+    Based in Ho Chi Minh City, FreakFit is a passion project created by athletes for athletes.
+    Our goal is to design sportswear that prioritizes performance, durability, and bold identity.
+    Every product is built to move with you — whether you're running, lifting, or pushing your limits.
+    </p>
+    <p>
+    FreakFit isn't just clothing. It's a mindset built around strength, movement, and self-expression.
+    </p>
 
-<h1>About FreakFit</h1>
-
-<p>
-Based in Ho Chi Minh City, FreakFit is a passion project created by athletes for athletes.
-Our goal is to design sportswear that prioritizes performance, durability, and bold identity.
-Every product is built to move with you — whether you're running, lifting, or pushing your limits.
-</p>
-
-<p>
-FreakFit isn't just clothing. It's a mindset built around strength, movement, and self-expression.
-</p>
-
-<div class="team">
-
-<div class="member">
-<img src="./images/founder1.jpg">
-<h3>Gavin</h3>
-<p>Website curator</p>
+    <div class="team">
+        <div class="member">
+            <img src="https://picsum.photos/seed/founder1/500/500" alt="Gavin">
+            <h3>Gavin</h3>
+            <p>Website curator</p>
+        </div>
+        <div class="member">
+            <img src="https://picsum.photos/seed/founder2/500/500" alt="Amber">
+            <h3>Amber</h3>
+            <p>Marketing strategist</p>
+        </div>
+        <div class="member">
+            <img src="https://picsum.photos/seed/founder3/500/500" alt="Jerry">
+            <h3>Jerry</h3>
+            <p>Brand designer</p>
+        </div>
+    </div>
 </div>
-
-<div class="member">
-<img src="./images/founder2.jpg">
-<h3>Amber</h3>
-<p>Marketing strategist</p>
-</div>
-
-<div class="member">
-<img src=.es/founder3.jpg">
-<h3>Jerry</h3>
-<p>Brand designer</p>
-</div>
-
-</div>
-
-</div>
-
 
 <div class="contact">
+    <div class="contact-grid">
 
-<div class="contact-grid">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p><b>Phone</b><br>123-456-7890</p>
+            <p><b>Email</b><br>freakfit@gmail.com</p>
+            <p><b>Founders</b><br>Gavin, Amber, Jerry</p>
+        </div>
 
-<!-- LEFT SIDE -->
 
-<div class="contact-info">
-
-<h2>Contact Us</h2>
-
-<p><b>Phone</b><br>123-456-7890</p>
-
-<p><b>Email</b><br>freakfit@gmail.com</p>
-
-<p><b>Founders</b><br>Gavin, Amber, Jerry</p>
-
+        <div class="contact-form">
+            <h2>Send a Message</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="text" placeholder="Phone Number">
+                <input type="email" placeholder="Email Address">
+                <textarea rows="5" placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
 </div>
 
-
-<!-- RIGHT SIDE -->
-
-<div class="contact-form">
-
-<h2>Send a Message</h2>
-
-<form>
-<input type="text" placeholder="Your Name">
-<input type="text" placeholder="Phone Number">
-<input type="email" placeholder="Email Address">
-<textarea rows="5" placeholder="Message"></textarea>
-<button type="submit">Send</button>
-</form>
+<script>
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('freakfit_cart')) || [];
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    const cartLinks = document.querySelectorAll('.cart-link');
+    cartLinks.forEach(link => {
+        link.innerText = `Cart (${totalQty})`;
+    });
+}
+document.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+</body>
+</html>
